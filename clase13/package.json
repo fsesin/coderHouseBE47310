@@ -1,0 +1,20 @@
+{
+  "name": "clase13",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start:dev": "nodemon src/app.js --mode dev --port 8080 --debug",
+    "start:test": "node src/app.js --mode test",
+    "start:prod": "node src/app.js --mode prod"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^11.1.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
+  }
+}
