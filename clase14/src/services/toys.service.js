@@ -1,4 +1,4 @@
-import { toysManager } from "../persistencia/toysManager.js";
+import toysManager from "../persistencia/DAOs/factory.js";
 
 export const findAll = () => {
   const toys = toysManager.findAll();
