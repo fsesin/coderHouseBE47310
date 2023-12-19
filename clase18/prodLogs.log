@@ -1,0 +1,10 @@
+{
+  message: 'Fatal',
+  level: 'fatal',
+  timestamp: '2023-12-16T15:45:12.632Z'
+}
+{
+  message: 'Warning',
+  level: 'warning',
+  timestamp: '2023-12-16T15:45:12.636Z'
+}
