@@ -1,0 +1,111 @@
+paths:
+  /api/users:
+    get:
+      summary: Get all users
+      tags:
+        - Users
+      responses:
+        "200":
+          description: All users
+        "500":
+          description: Server error
+        "400":
+          description: Some data is missing
+  /api/users/{id}:
+    get:
+      summary: Get user by id
+      tags:
+        - Users
+      parameters:
+        - name: id
+          in: path
+          description: User identifier
+          schema:
+            $type: String
+      responses:
+        "200":
+          description: One user found
+          content:
+            application/json:
+              schemas:
+                $ref: "#components/schemas/User"
+              example:
+                id: fhghfvghltglg
+                first_name: Juan
+                last_name: Hoyos
+                age: 38
+                email: jhoyos@mail.com
+        "500":
+          description: Server error
+        "400":
+          description: Some data is missing
+    put:
+      summary: Update user by id
+      tags:
+        - Users
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: User identifier
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#components/requestBodies/updateUser"
+      responses:
+        "200":
+          description: User updated
+          content:
+            application/json:
+              schemas:
+                $ref: "#components/schemas/User"
+              example:
+                id: fhghfvghltglg
+                first_name: Juan
+                last_name: Hoyos
+                age: 38
+                email: jhoyos@mail.com
+        "500":
+          description: Server error
+        "400":
+          description: Some data is missing
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        age:
+          type: number
+        email:
+          type: string
+      example:
+        id: fdjkgfjkgtrjgtjktjkgt
+        first_name: Franco
+        last_name: Salamanca
+        age: 45
+        email: fsalamanca@mail.com
+  requestBodies:
+    updateUser:
+      type: object
+      properties:
+        first_name:
+          type: string
+        last_name:
+          type: string
+        age:
+          type: number
+        email:
+          type: string
+      example:
+        first_name: Franco
+        last_name: Salamanca
+        age: 45
+        email: fsalamanca@mail.com
